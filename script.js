@@ -1,15 +1,19 @@
 let displayValue = 0;
 
+const convertToNumber = (n) => n*1
+
 function onNumberButtonClicked(event) {
     const strNumberClicked = this.textContent;
-    if (firstNum === 0) return displayValue = strNumberClicked;
+    if (displayValue === 0) return displayValue = strNumberClicked;
     displayValue = displayValue + strNumberClicked
     displayValue = convertToNumber(displayValue);
+    console.log(displayValue);
 }
 
-function convertToNumber(n) {
-    return n*1
-}
+const buttons = document.querySelectorAll('.number');
+
+buttons.forEach(button => 
+    button.addEventListener('click',onNumberButtonClicked));
 
 function operate(num1, num2 , operator) {
     switch (operator) {
