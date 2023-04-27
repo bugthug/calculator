@@ -1,18 +1,23 @@
 let displayValue = 0;
 
 const convertToNumber = (n) => n*1
+const displayElement = document.
+    querySelector('.screen > h1');
+
+
 
 function onNumberButtonClicked(event) {
     const strNumberClicked = this.textContent;
     if (displayValue === 0) return displayValue = strNumberClicked;
     displayValue = displayValue + strNumberClicked
+    displayElement.textContent = displayValue;
     displayValue = convertToNumber(displayValue);
-    console.log(displayValue);
 }
 
-const buttons = document.querySelectorAll('.number');
+const numberButtons = document.querySelectorAll('.number');
 
-buttons.forEach(button => 
+
+numberButtons.forEach(button => 
     button.addEventListener('click',onNumberButtonClicked));
 
 function operate(num1, num2 , operator) {
