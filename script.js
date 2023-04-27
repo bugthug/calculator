@@ -1,4 +1,15 @@
-let firstNum = 0;
+let displayValue = 0;
+
+function onNumberButtonClicked(event) {
+    const strNumberClicked = this.textContent;
+    if (firstNum === 0) return displayValue = strNumberClicked;
+    displayValue = displayValue + strNumberClicked
+    displayValue = convertToNumber(displayValue);
+}
+
+function convertToNumber(n) {
+    return n*1
+}
 
 function operate(num1, num2 , operator) {
     switch (operator) {
