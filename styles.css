@@ -40,9 +40,17 @@ html, body {
 
 
 .row > button:hover {
-  transition: 740ms;
+  transition: 340ms;
   font-weight: bolder;
-  background-color: aqua;
+  background-color: wheat;
 }
 
+#clear-button,
+.row > button.operand {
+  background-color: beige;
+}
+
+.row > button.operand:hover {
+  background-color:burlywood
+}
 
