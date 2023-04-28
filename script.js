@@ -88,15 +88,16 @@ function handleEqualOperation(currentOperand) {
 const clearButton = document.
     querySelector('#clear-button');
 
-clearButton.addEventListener('click',() => {
+clearButton.addEventListener('click',clearEverything)
+
+function clearEverything() {
     setDisplayValue(0);
     calculatorState = {
         displayValue: 0,
         operator: null,
         firstValue: null
     }
-})
-
+}
 
 function firstStep(currentOperand) {
     calculatorState.firstValue = 1 * displayElement.textContent;
@@ -106,9 +107,18 @@ function firstStep(currentOperand) {
 }
 
 function calculate(currentOperand) {
-    let result = Math.floor(
+    if (calculatorState.displayValue === 0
+        && calculatorState.operator === "÷") {
+        clearEverything();
+        setDisplayValue("Can't divide by zero");
+        calculatorState.displayValue = 0;
+        isDisappear = true;
+        return;
+    }
+
+    let result = Math.floor(100 *
         operate(calculatorState.firstValue, calculatorState.displayValue, calculatorState.operator)
-        );
+        ) / 100;
     
     
     setDisplayValue(result);
@@ -150,6 +160,5 @@ function multiply(num1, num2){
 }
 
 function divide(num1, num2){
-    if (convertToNumber(num2) === 0 ) throw new Error(''); 
     return num1/num2;
 }
