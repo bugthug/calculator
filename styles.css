@@ -33,8 +33,16 @@ html, body {
 .row > button {
   flex: 1 1 auto;
   padding: 10px;
-  border-radius: 7px;
+  border-radius: 10px;
   border: none;
   margin-left: 2px;
 }
+
+
+.row > button:hover {
+  transition: 740ms;
+  font-weight: bolder;
+  background-color: aqua;
+}
+
 
