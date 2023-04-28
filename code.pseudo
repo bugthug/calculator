@@ -1,0 +1,78 @@
+/* 
+We have unique situations to cover
+
+1. Occurs when all values aside from displayed are unassigned
+displayedValue = '5'
+operator = null
+firstValue = null
+
+on operator click (in this case, x)-
+function firstStep - put displayed into firstValue, reset dis,
+    place into operator.
+
+
+2. Occurs when only all values are assigned
+displayedValue = '4'
+operator = 'x'
+firstValue = '5'
+
+on regular operator click-
+function calculate - 
+    make displayedValue, firstValue = operate(...)
+    make operator be equal to operator
+
+on equal operator click-
+function calculate -
+    make displayedValue, firstValue = operate(...)
+    make operator null
+
+3. Occurs when operator=null and firstValue != null
+displayedValue = '5'
+operator = 'null'
+firstValue = '20'
+
+on operator click
+function afterEqualStep -
+    operator = operator who was pressed
+
+
+
+all that needs to be done is step detection!
+*/
+// 
+
+function triggerAppropriateResponse(calculatorState) {
+    switch (calculatorState) {
+        case operator and firstValue are both null:
+            // firstStep(calculatorState);
+        
+        case operator is not null and firstValue is not null:
+            calculate(calculatorState);
+        
+        case operator is not null:
+            afterEqualStep(calculatorState);
+    }
+}
+
+function firstStep(calculatorState) {
+    firstValue = calculatorState.displayedValue
+    operator = calculatorState.operator;
+    disapperNumberUponButtonClick();
+}
+
+function calculate(calculatorState) {
+    let result = Math.floor(operate(...))
+    setDisplayedValue(result);
+    firstValue = result;
+    operator = calculatorState.operator != '=' ? calculatorState.operator : null;
+    disapperNumberUponButtonClick();
+}
+
+function afterEqualStep(calculatorState) {
+    operator calculatorState.operator
+    disapperNumberUponButtonClick();
+}
+
+function disappearNumberUponButtonClick() {
+    
+}

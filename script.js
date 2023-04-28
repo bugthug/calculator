@@ -57,7 +57,9 @@ function setDisplayValue(value) {
 }
 
 function triggerAppropriateResponse(currentOperand) {
+
     if (calculatorState.operator === "=") {
+        if (calculatorState.firstValue === null) return;
         handleEqualOperation(currentOperand);
         return;
     }
