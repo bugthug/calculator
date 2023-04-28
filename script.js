@@ -36,6 +36,9 @@ operandElements.forEach((operand) =>
 
 function onNumberButtonClicked(event) {
     wasOperatorLastClicked = false;
+    if (calculatorState.operator === "=") {
+        clearEverything();
+    }
     const strNumberClicked = this.textContent;
     if (isDisappear) {
         setDisplayValue(strNumberClicked)
